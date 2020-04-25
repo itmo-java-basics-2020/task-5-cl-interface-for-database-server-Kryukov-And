@@ -36,7 +36,7 @@ public interface DatabaseCommandResult {
         @Override
         public Optional<String> getResult() {
             if (isSuccess()) {
-                return Optional.of(message);
+                return Optional.ofNullable(message);
             }
 
             return Optional.empty();
