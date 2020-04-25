@@ -26,17 +26,17 @@ public interface DatabaseCommandResult {
 
     class DatabaseCommandResultClass implements DatabaseCommandResult {
         private final DatabaseCommandStatus status;
-        private final String value;
+        private final String message;
 
-        private DatabaseCommandResultClass(DatabaseCommandStatus status, String value) {
+        private DatabaseCommandResultClass(DatabaseCommandStatus status, String message) {
             this.status = status;
-            this.value = value;
+            this.message = message;
         }
 
         @Override
         public Optional<String> getResult() {
             if (isSuccess()) {
-                return Optional.of(value);
+                return Optional.of(message);
             }
 
             return Optional.empty();
@@ -58,7 +58,7 @@ public interface DatabaseCommandResult {
                 return null;
             }
 
-            return value;
+            return message;
         }
     }
 }
