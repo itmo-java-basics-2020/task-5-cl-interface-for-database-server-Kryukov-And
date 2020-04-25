@@ -19,7 +19,7 @@ public class DatabaseServer {
     }
 
     DatabaseCommandResult executeNextCommand(String commandText) {
-        if (commandText == null) {
+        if (commandText.isEmpty()) {
             return DatabaseCommandResult.error("Empty command");
         }
 
